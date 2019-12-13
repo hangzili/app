@@ -15,3 +15,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::any('/','IndexController@index');
+
+Route::any("goods/add","Admin\GoodsController@add");
