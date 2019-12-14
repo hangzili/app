@@ -16,7 +16,6 @@ Route::get('/', function () {
 });
 Route::any('/','IndexController@index');
 
-<<<<<<< HEAD
 // 商品表
 Route::any("goods/add","Admin\GoodsController@add");
 
@@ -24,12 +23,9 @@ Route::any("goods/add","Admin\GoodsController@add");
 Route::any("cat/up","Admin\CatController@up");
 Route::any("cat/add","Admin\CatController@add");
 Route::any("cat/add_do","Admin\CatController@add_do");
-=======
+
 Route::any("goods/add","Admin\GoodsController@add");
 
-<<<<<<< HEAD
-
-// RBAC
 Route::prefix('rbac')->group(function () {
     Route::any("regis","Rbac\LoginController@regis");//用户注册视图
     Route::any("doregis","Rbac\LoginController@doregis");//用户注册执行
@@ -57,7 +53,6 @@ Route::prefix('rbac')->group(function () {
     Route::any("role_permi_list","Rbac\RolePermiController@role_permi_list");//角色权限展示
 
 });
-=======
 //前台收货地址添加
 Route::any("address/add","Admin\AddressController@add");
 Route::any("address/add_do","Admin\AddressController@add_do");
@@ -74,5 +69,3 @@ Route::any("collection/list","Admin\CollectionController@list");
 //前台用户添加
 Route::any("user/add","Admin\UserController@add");
 Route::any("user/list","Admin\UserController@list");
->>>>>>> bc17b500dbf45b2a0320b7ff5a4ba2be9ae99852
->>>>>>> cc1ea33a397f9399bbde4af3b830ea6ba9a8c563
