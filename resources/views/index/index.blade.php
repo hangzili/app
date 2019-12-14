@@ -67,28 +67,28 @@
                             <li>
                                 <a class="J_menuItem" href="rbac/login">登录用户</a>
                             </li>
-                            ---------------------------------------------------
+                            
                             <li>
                                 <a class="J_menuItem" href="/rbac/role">角色添加</a>
                             </li>
                             <li>
                                 <a class="J_menuItem" href="/rbac/rolelist">角色展示</a>
                             </li>
-                            ---------------------------------------------------
+                            
                             <li>
                                 <a class="J_menuItem" href="/rbac/user_role">用户角色添加</a>
                             </li>
                             <li>
                                 <a class="J_menuItem" href="/rbac/user_roel_list">用户角色展示</a>
                             </li>
-                            ---------------------------------------------------
+                            
                             <li>
                                 <a class="J_menuItem" href="/rbac/permi">权限添加</a>
                             </li>
                             <li>
                                 <a class="J_menuItem" href="/rbac/permilist">权限展示</a>
                             </li>
-                            ---------------------------------------------------
+                            
                             <li>
                                 <a class="J_menuItem" href="/rbac/role_permi">角色权限添加</a>
                             </li>
