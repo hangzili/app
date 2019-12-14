@@ -471,7 +471,11 @@
     <script type="text/javascript" src="/index/js/index.js"></script>
 
     <!-- 第三方插件 -->
+<<<<<<< HEAD
+    <script src="/index/js/plugins/pace/pace.min.js"></script>
+=======
     <!-- <script src="/index/js/plugins/pace/pace.min.js"></script> -->
+>>>>>>> 6843d98e138059163665f586c448bcc9fb8ba4a7
 <div style="text-align:center;">
 <p>来源:<a href="http://www.mycodes.net/" target="_blank">源码之家</a></p>
 </div>
