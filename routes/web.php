@@ -16,4 +16,10 @@ Route::get('/', function () {
 });
 Route::any('/','IndexController@index');
 
+// 商品表
 Route::any("goods/add","Admin\GoodsController@add");
+
+// 分类表
+Route::any("cat/up","Admin\CatController@up");
+Route::any("cat/add","Admin\CatController@add");
+Route::any("cat/add_do","Admin\CatController@add_do");
