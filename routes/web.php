@@ -23,15 +23,10 @@ Route::any("goods/add","Admin\GoodsController@add");
 Route::any("cat/up","Admin\CatController@up");
 Route::any("cat/add","Admin\CatController@add");
 Route::any("cat/add_do","Admin\CatController@add_do");
-<<<<<<< HEAD
+
 
 Route::any("goods/add","Admin\GoodsController@add");
 
-=======
-Route::any("goods/add","Admin\GoodsController@add");
-
-// RBAC
->>>>>>> 01aa67e75bcd859393bd7f17854a4ab3de1aa806
 Route::prefix('rbac')->group(function () {
     Route::any("regis","Rbac\LoginController@regis");//用户注册视图
     Route::any("doregis","Rbac\LoginController@doregis");//用户注册执行
@@ -74,8 +69,4 @@ Route::any("collection/add","Admin\CollectionController@add");
 Route::any("collection/list","Admin\CollectionController@list");
 //前台用户添加
 Route::any("user/add","Admin\UserController@add");
-<<<<<<< HEAD
 Route::any("user/list","Admin\UserController@list");
-=======
-Route::any("user/list","Admin\UserController@list");
->>>>>>> 01aa67e75bcd859393bd7f17854a4ab3de1aa806
