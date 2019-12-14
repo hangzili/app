@@ -57,30 +57,43 @@
                     <li>
                         <a href="#">
                             <i class="fa fa fa-bar-chart-o"></i>
-                            <span class="nav-label">统计图表</span>
+                            <span class="nav-label">RBAC</span>
                             <span class="fa arrow"></span>
                         </a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a class="J_menuItem" href="graph_echarts.html">百度ECharts</a>
+                                <a class="J_menuItem" href="rbac/regis">注册用户</a>
                             </li>
                             <li>
-                                <a class="J_menuItem" href="graph_flot.html">Flot</a>
+                                <a class="J_menuItem" href="rbac/login">登录用户</a>
+                            </li>
+                            ---------------------------------------------------
+                            <li>
+                                <a class="J_menuItem" href="/rbac/role">角色添加</a>
                             </li>
                             <li>
-                                <a class="J_menuItem" href="graph_morris.html">Morris.js</a>
+                                <a class="J_menuItem" href="/rbac/rolelist">角色展示</a>
+                            </li>
+                            ---------------------------------------------------
+                            <li>
+                                <a class="J_menuItem" href="/rbac/user_role">用户角色添加</a>
                             </li>
                             <li>
-                                <a class="J_menuItem" href="graph_rickshaw.html">Rickshaw</a>
+                                <a class="J_menuItem" href="/rbac/user_roel_list">用户角色展示</a>
+                            </li>
+                            ---------------------------------------------------
+                            <li>
+                                <a class="J_menuItem" href="/rbac/permi">权限添加</a>
                             </li>
                             <li>
-                                <a class="J_menuItem" href="graph_peity.html">Peity</a>
+                                <a class="J_menuItem" href="/rbac/permilist">权限展示</a>
+                            </li>
+                            ---------------------------------------------------
+                            <li>
+                                <a class="J_menuItem" href="/rbac/role_permi">角色权限添加</a>
                             </li>
                             <li>
-                                <a class="J_menuItem" href="graph_sparkline.html">Sparkline</a>
-                            </li>
-                            <li>
-                                <a class="J_menuItem" href="graph_metrics.html">图表组合</a>
+                                <a class="J_menuItem" href="/rbac/role_permi_list">角色权限展示</a>
                             </li>
                         </ul>
                     </li>
