@@ -16,7 +16,6 @@ Route::get('/', function () {
 });
 Route::any('/','IndexController@index');
 
-<<<<<<< HEAD
 // 商品表
 Route::any("goods/add","Admin\GoodsController@add");
 
