@@ -62,10 +62,10 @@
                         </a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a class="J_menuItem" href="rbac/regis">注册用户</a>
+                                <a class="J_menuItem" href="/rbac/regis">注册用户</a>
                             </li>
                             <li>
-                                <a class="J_menuItem" href="rbac/login">登录用户</a>
+                                <a class="J_menuItem" href="/rbac/login">登录用户</a>
                             </li>
                             
                             <li>

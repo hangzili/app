@@ -12,6 +12,6 @@ class CarController extends Controller
     {
         $all = $request->all();
         $user_id = Cookie::get('user');
-        if($user_id)
+        // if($user_id)
     }
 }
