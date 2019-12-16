@@ -16,9 +16,6 @@ Route::get('/', function () {
 });
 Route::any('/','IndexController@index');
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
 Route::any("goods/add","Admin\GoodsController@add");
 
 Route::any("coupons/add","Admin\CouponsController@add");//优惠券添加
@@ -31,8 +28,6 @@ Route::any("usercoupons/add","Admin\UsercouponsController@add");//用户优惠�
 Route::any("usercoupons/add_do","Admin\UsercouponsController@add_do");//用户优惠券添加
 Route::any("usercoupons/list","Admin\UsercouponsController@list");//用户优惠券添加
 Route::any("usercoupons/del","Admin\UsercouponsController@del");//用户优惠券删除
-=======
->>>>>>> 3fe88c26604dc09d9ef29de6b524759057d63360
 // 商品表
 Route::any("goods/add","Admin\GoodsController@add");
 
@@ -40,17 +35,14 @@ Route::any("goods/add","Admin\GoodsController@add");
 Route::any("cat/up","Admin\CatController@up");
 Route::any("cat/add","Admin\CatController@add");
 Route::any("cat/add_do","Admin\CatController@add_do");
-<<<<<<< HEAD
 
 
 Route::any("goods/add","Admin\GoodsController@add");
 
-=======
 
 
 Route::any("goods/add","Admin\GoodsController@add");
 // RBAC
->>>>>>> 3fe88c26604dc09d9ef29de6b524759057d63360
 Route::prefix('rbac')->group(function () {
     Route::any("regis","Rbac\LoginController@regis");//用户注册视图
     Route::any("doregis","Rbac\LoginController@doregis");//用户注册执行
@@ -109,4 +101,3 @@ Route::any("collection/list","Admin\CollectionController@list");
 //前台用户添加
 Route::any("user/add","Admin\UserController@add");
 Route::any("user/list","Admin\UserController@list");
->>>>>>> c4eaa3a275654b05e27959fe9b0762d5db3d7b09
