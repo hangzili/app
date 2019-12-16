@@ -17,10 +17,12 @@
     <![endif]-->
 
     <link rel="shortcut icon" href="favicon.ico"> 
-    <link href="/index/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <!-- <link href="/index/css/bootstrap.min.css?v=3.3.6" rel="stylesheet"> -->
     <link href="/index/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+    
     <link href="/index/css/animate.css" rel="stylesheet">
     <link href="/index/css/style.css?v=4.1.0" rel="stylesheet">
+    
 </head>
 
 <body class="fixed-sidebar full-height-layout gray-bg" style="overflow:hidden">
