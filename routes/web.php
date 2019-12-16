@@ -23,9 +23,10 @@ Route::any("goods/add","Admin\GoodsController@add");
 Route::any("cat/up","Admin\CatController@up");
 Route::any("cat/add","Admin\CatController@add");
 Route::any("cat/add_do","Admin\CatController@add_do");
+
+
 Route::any("goods/add","Admin\GoodsController@add");
 
-// RBAC
 Route::prefix('rbac')->group(function () {
     Route::any("regis","Rbac\LoginController@regis");//用户注册视图
     Route::any("doregis","Rbac\LoginController@doregis");//用户注册执行
