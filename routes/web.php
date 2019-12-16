@@ -26,7 +26,7 @@ Route::any("cat/add_do","Admin\CatController@add_do");
 
 
 Route::any("goods/add","Admin\GoodsController@add");
-
+// RBAC
 Route::prefix('rbac')->group(function () {
     Route::any("regis","Rbac\LoginController@regis");//用户注册视图
     Route::any("doregis","Rbac\LoginController@doregis");//用户注册执行
@@ -54,6 +54,21 @@ Route::prefix('rbac')->group(function () {
     Route::any("role_permi_list","Rbac\RolePermiController@role_permi_list");//角色权限展示
 
 });
+
+// 类型
+Route::prefix('type')->group(function () {
+    Route::any("type","Type\TypeController@type");//类型视图
+    Route::any("dotype","Type\TypeController@dotype");//类型添加执行
+    Route::any("typelist","Type\TypeController@typelist");//类型展示
+});
+
+// 属性
+Route::prefix('attr')->group(function () {
+    Route::any("attr","Attr\AttrController@attr");//类型视图
+    Route::any("doattr","Attr\AttrController@doattr");//类型视图
+    Route::any("attrlist","Attr\AttrController@attrlist");//类型视图
+});
+
 //前台收货地址添加
 Route::any("address/add","Admin\AddressController@add");
 Route::any("address/add_do","Admin\AddressController@add_do");
