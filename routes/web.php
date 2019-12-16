@@ -69,6 +69,15 @@ Route::prefix('attr')->group(function () {
     Route::any("attrlist","Attr\AttrController@attrlist");//类型视图
 });
 
+// 轮播图
+Route::prefix('img')->group(function () {
+    Route::any("img","Img\ImgController@img");//轮播图视图
+    Route::any("doimg","Img\ImgController@doimg");//轮播图添加执行
+    Route::any("up","Img\ImgController@up");//轮播图添加执行
+    Route::any("imglist","Img\ImgController@imglist");//轮播图展示
+    Route::any("del","Img\ImgController@del");//删除轮播图
+});
+
 //前台收货地址添加
 Route::any("address/add","Admin\AddressController@add");
 Route::any("address/add_do","Admin\AddressController@add_do");
