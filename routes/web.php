@@ -110,3 +110,8 @@ Route::any("collection/list","Admin\CollectionController@list");
 //前台用户添加
 Route::any("user/add","Admin\UserController@add");
 Route::any("user/list","Admin\UserController@list");
+
+
+Route::prefix('api')->group(function () {
+    Route::any("imgApi","Api\ApiController@imgApi");//轮播图接口
+});
