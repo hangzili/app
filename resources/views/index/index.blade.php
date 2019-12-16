@@ -100,40 +100,27 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-edit"></i> <span class="nav-label">表单</span><span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-edit"></i> <span class="nav-label">优惠券</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li><a class="J_menuItem" href="form_basic.html">基本表单</a>
+
+                            <li><a class="J_menuItem" href="{{url('coupons/add')}}">优惠卷添加</a>
                             </li>
-                            <li><a class="J_menuItem" href="form_validate.html">表单验证</a>
+
+                            <li><a class="J_menuItem" href="{{url('coupons/list')}}">优惠卷展示</a>
                             </li>
-                            <li><a class="J_menuItem" href="form_advanced.html">高级插件</a>
+
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-edit"></i> <span class="nav-label">用户优惠券</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+
+                            <li><a class="J_menuItem" href="{{url('usercoupons/add')}}">用户优惠卷添加</a>
                             </li>
-                            <li><a class="J_menuItem" href="form_wizard.html">表单向导</a>
+
+                            <li><a class="J_menuItem" href="{{url('usercoupons/list')}}">用户优惠卷添加</a>
                             </li>
-                            <li>
-                                <a href="#">文件上传 <span class="fa arrow"></span></a>
-                                <ul class="nav nav-third-level">
-                                    <li><a class="J_menuItem" href="form_webuploader.html">百度WebUploader</a>
-                                    </li>
-                                    <li><a class="J_menuItem" href="form_file_upload.html">DropzoneJS</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#">编辑器 <span class="fa arrow"></span></a>
-                                <ul class="nav nav-third-level">
-                                    <li><a class="J_menuItem" href="form_editors.html">富文本编辑器</a>
-                                    </li>
-                                    <li><a class="J_menuItem" href="form_simditor.html">simditor</a>
-                                    </li>
-                                    <li><a class="J_menuItem" href="form_markdown.html">MarkDown编辑器</a>
-                                    </li>
-                                    <li><a class="J_menuItem" href="code_editor.html">代码编辑器</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li><a class="J_menuItem" href="layerdate.html">日期选择器layerDate</a>
-                            </li>
+
                         </ul>
                     </li>
                     <li>
@@ -448,6 +435,7 @@
     
     <!-- 全局js -->
     <script src="/index/js/jquery.min.js?v=2.1.4"></script>
+    <script src="/index/js/jquery.js"></script>
     <script src="/index/js/bootstrap.min.js?v=3.3.6"></script>
     <script src="/index/js/plugins/metisMenu/jquery.metisMenu.js"></script>
     <script src="/index/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
