@@ -14,17 +14,6 @@
         <form class="form-horizontal">
 
             <div class="form-group">
-                <label class="col-sm-2 control-label">属性类型</label>
-                <div class="col-sm-10">
-                    <select class="form-control m-b" name="t_id">
-                    @foreach($typeInfo as $k => $v)
-                        <option value="<?php echo $v['t_id']?>"><?php echo $v['t_name']?></option>
-                    @endforeach
-                    </select>
-                </div>
-            </div>
-
-            <div class="form-group">
                 <label class="col-sm-3 control-label">属性名称</label>
                 <div class="col-sm-8">
                     <input type="text" placeholder="属性名称" name="a_name" class="form-control">

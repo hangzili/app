@@ -11,20 +11,17 @@ class AttrController extends Controller
 {
     public function attr()
     {
-        $typeInfo = TypeModel::get();
-        return view('attr.attr',['typeInfo'=>$typeInfo]);
+        return view('attr.attr');
     }
 
     public function doattr(Request $request)
     {
         $a_name = $request->input('a_name');
-        $t_id = $request->input('t_id');
         // dd($t_id);
         $time = time();
         // dd($p_url);
         $attrInfo = AttrModel::create([
             'a_name' => $a_name,
-            't_id' => $t_id,
             'time' => $time
         ]);
         // dd($roleInfo);

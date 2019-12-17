@@ -94,6 +94,13 @@ Route::prefix('img')->group(function () {
     Route::any("del","Img\ImgController@del");//删除轮播图
 });
 
+// 关系表
+Route::prefix('bet')->group(function () {
+    Route::any("betadd","Bet\BetController@betadd");//视图
+    Route::any("dobetadd","Bet\BetController@dobetadd");//添加执行
+    Route::any("betlist","Bet\BetController@betlist");//展示
+});
+
 //前台收货地址添加
 Route::any("address/add","Admin\AddressController@add");
 Route::any("address/add_do","Admin\AddressController@add_do");
