@@ -30,18 +30,41 @@ Route::any("usercoupons/list","Admin\UsercouponsController@list");//用户优惠
 Route::any("usercoupons/del","Admin\UsercouponsController@del");//用户优惠券删除
 // 商品表
 Route::any("goods/add","Admin\GoodsController@add");
+Route::any("goods/ajax","Admin\GoodsController@ajax");
+Route::any("goods/up","Admin\GoodsController@up");
+Route::any("goods/add_do","Admin\GoodsController@add_do");
+Route::any("goods/list","Admin\GoodsController@list");
+Route::any("goods/del","Admin\GoodsController@del");
+
+
+
+
 
 // 分类表
 Route::any("cat/up","Admin\CatController@up");
 Route::any("cat/add","Admin\CatController@add");
 Route::any("cat/add_do","Admin\CatController@add_do");
+Route::any("cat/list","Admin\CatController@list");
+Route::any("cat/del","Admin\CatController@del");
 
 
-Route::any("goods/add","Admin\GoodsController@add");
+
+// 品牌表
+Route::any("brand/add","Admin\BrandController@add");
+Route::any("brand/add_do","Admin\BrandController@add_do");
+Route::any("brand/list","Admin\BrandController@list");
+Route::any("brand/del","Admin\BrandController@del");
 
 
 
-Route::any("goods/add","Admin\GoodsController@add");
+
+
+
+
+
+
+
+
 // RBAC
 Route::prefix('rbac')->group(function () {
     Route::any("regis","Rbac\LoginController@regis");//用户注册视图

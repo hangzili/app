@@ -16,8 +16,8 @@
     <meta http-equiv="refresh" content="0;ie.html" />
     <![endif]-->
 
-    <link rel="shortcut icon" href="favicon.ico"> 
-    <!-- <link href="/index/css/bootstrap.min.css?v=3.3.6" rel="stylesheet"> -->
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="/index/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
     <link href="/index/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
     
     <link href="/index/css/animate.css" rel="stylesheet">
@@ -450,8 +450,8 @@
     </div>
     
     <!-- 全局js -->
-    <script src="/index/js/jquery.min.js?v=2.1.4"></script>
-    <script src="/index/js/jquery.js"></script>
+    <!-- <script src="/index/js/jquery.min.js?v=2.1.4"></script>
+    <script src="/index/js/jquery.js"></script> -->
     <script src="/index/js/bootstrap.min.js?v=3.3.6"></script>
     <script src="/index/js/plugins/metisMenu/jquery.metisMenu.js"></script>
     <script src="/index/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
