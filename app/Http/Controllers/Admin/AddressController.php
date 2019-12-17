@@ -8,7 +8,7 @@ use App\Admin\AddressModel;
 use App\Admin\RegionModel;
 class AddressController extends Controller
 {
-    //用户收货地址添加
+    //用户收货地址添加-------------------------123456789------------------------------
     // public function add()
     // {
     //     return json_encode(RegionModel::get()->toArray());
@@ -23,6 +23,7 @@ class AddressController extends Controller
         //dump(explode(',',$a));
         //dump($all);
         $add = AddressModel::insert($data);
+       
         //if($add){
         //    return 1;
         //}else{

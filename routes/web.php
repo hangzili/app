@@ -22,8 +22,8 @@ Route::any("coupons/add","Admin\CouponsController@add");//优惠券添加
 Route::any("coupons/add_do","Admin\CouponsController@add_do");//优惠券添加
 Route::any("coupons/list","Admin\CouponsController@list");//优惠券展示
 Route::any("coupons/del","Admin\CouponsController@del");//优惠券删除
-//用户优惠卷
 
+//用户优惠卷
 Route::any("usercoupons/add","Admin\UsercouponsController@add");//用户优惠券添加
 Route::any("usercoupons/add_do","Admin\UsercouponsController@add_do");//用户优惠券添加
 Route::any("usercoupons/list","Admin\UsercouponsController@list");//用户优惠券添加
@@ -95,7 +95,7 @@ Route::prefix('rbac')->group(function () {
 });
 
 // 类型
-Route::prefix('type')->group(function () {
+ Route::prefix('type')->group(function () {
     Route::any("type","Type\TypeController@type");//类型视图
     Route::any("dotype","Type\TypeController@dotype");//类型添加执行
     Route::any("typelist","Type\TypeController@typelist");//类型展示
@@ -134,7 +134,13 @@ Route::any("collection/list","Admin\CollectionController@list");
 Route::any("user/add","Admin\UserController@add");
 Route::any("user/list","Admin\UserController@list");
 
-
+// 接口
 Route::prefix('api')->group(function () {
     Route::any("imgApi","Api\ApiController@imgApi");//轮播图接口
+    Route::any("registApi","Api\ApiController@registApi");//前台注册接口
+    Route::any("loginApi","Api\ApiController@loginApi");//前台登录接口
+    Route::any("addbakeApi","Api\ApiController@addbakeApi");//前台银行卡添加接口
+    Route::any("listbakeApi","Api\ApiController@listbakeApi");//前台银行卡展示接口
 });
+
+
