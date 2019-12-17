@@ -34,7 +34,7 @@
                                     <div class="form-group">
                                         <label>商品图片上传</label>
                                         <input name="img" type="file" id="uploadify" class="" />
-                                        <input type="hidden" name="path">
+                                        <input type="hidden" name="c_img">
                                     </div>
                                     
                                     <div>
@@ -46,20 +46,18 @@
                     </div>
 
 @endsection
-
-
-<link rel="stylesheet" type="text/css" href="/uploadify/uploadify.css" />
-<script src="/index/js/jquery.min.js?v=2.1.4"></script>
+<script src="/uploadify/jquery.js"></script>
 <script src="/uploadify/jquery.uploadify.js"></script>
+<link rel="stylesheet" href="{{asset('uploadify/uploadify.css')}}">
 
-<!-- <script src="{{asset('uploadify/jquery.uploadify.js')}}"></script> -->
-<!-- <link rel="stylesheet" href="{{asset('uploadify/uploadify.css')}}"> -->
+
 <script>
+$(document).ready(function(){
    $("#uploadify").uploadify({
-      'swf': './uploadify/uploadify.swf',
+      'swf': '{{asset("uploadify/uploadify.swf")}}',
       'uploader':'/cat/up',
       'onUploadSuccess':function(file,msg,data){
-        $("input[name='path']").val(msg);
+        $("input[name='c_img']").val(msg);
       }
     })
 
@@ -68,9 +66,11 @@
             // alert(123);
             var _this = $(this);
             var c_name = $("input[name='c_name']").val();
+            var c_img = $("input[name='c_img']").val();
             // alert(c_name);
             data = {};
             data.c_name = c_name;
+            data.c_img = c_img;
             $.ajax({
                 url:"{{url('cat/add_do')}}",
                 data:data,
@@ -81,4 +81,5 @@
             })
         
         })
+    })
 </script>

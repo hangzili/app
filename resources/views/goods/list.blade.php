@@ -30,6 +30,7 @@
         <td>id</td>
         <td>商品名</td>
         <td>商品价格</td>
+        <td>商品库存</td>
         <td>商品描述</td>
         <td>商品图片</td>
         <td>父类名称</td>
@@ -42,6 +43,7 @@
         <td><?php echo $v['goods_id']?></td>
         <td><?php echo $v['g_name']?></td>
         <td><?php echo $v['g_price']?></td>
+        <td><?php echo $v['g_num']?></td>
         <td><?php echo $v['g_desc']?></td>
         <td><img src="<?php echo $v['g_img']?>"  width='100px'></td>
         <td><?php echo $v['c_name']?></td>
