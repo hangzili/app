@@ -148,6 +148,8 @@ Route::prefix('api')->group(function () {
     Route::any("brandApi","Api\ApiController@brandApi");//前台品牌接口
     Route::any("brGroApi","Api\ApiController@brGroApi");//前台品牌商品接口
     Route::any("gdetailsApi","Api\ApiController@gdetailsApi");//前台商品详情接口
+    Route::any("ColleApi","Api\ColleController@ColleApi");//前台收藏添加接口
+    Route::any("listApi","Api\ColleController@listApi");//前台收藏展示接口
 });
 
 
