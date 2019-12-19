@@ -15,7 +15,7 @@ class GoodslistController extends Controller
     {
         $goods_id = $request->all('goods_id');
         $goods_id = $goods_id['goods_id'];
-        $list = GoodsModel::where('goods_id',$goods_id)->first();
+        $list = GoodsModel::where('goods_id',$goods_id)->first()->toArray();
         return json_decode($list);
     }
     //根据商品id获取商品属性
