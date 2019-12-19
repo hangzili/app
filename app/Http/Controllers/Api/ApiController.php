@@ -8,6 +8,11 @@ use Illuminate\Support\Facades\Cookie;
 use App\Model\ImgModel;
 use App\Model\UserModel;
 use App\Model\BankModel;
+use App\Model\GoodsModel;
+use App\Model\CatModel;
+use App\Model\BrandModel;
+use App\Model\BetModel;
+
 
 class ApiController extends Controller
 {
@@ -19,7 +24,7 @@ class ApiController extends Controller
         $arr = json_encode($imgInfo);
         echo "$jsonp($arr)";
         //return json_encode(['code'=>200,$imgInfo]);
-        // dd($imgInfo);2345
+        // dd($imgInfo);
     }
 
     // 前台注册接口
@@ -27,7 +32,7 @@ class ApiController extends Controller
     {
         $info = request() -> all();
         $user_name=$info['user_name'];
-        
+
         $where=['user_name'=>$user_name];
         $res=UserModel::where($where)->first();
         if($res){
@@ -80,7 +85,74 @@ class ApiController extends Controller
     public function listbakeApi(Request $request)
     {
         $id = cookie::get('user');
-        $bankInfo = BankModel::join('user','user.u_id','=','bank.user_id')->where('user.u_id','=',$id)->limit(4)->get();
-        return json_encode(['code'=>200,'bankInfo'=>$bankInfo]);
+        $list = BankModel::get();
+        return json_encode($list);
     }
+
+    // 精品推荐接口
+    public function highApi()
+    {
+        $highInfo = GoodsModel::limit(6)->get();
+        return json_encode($highInfo);
+    }
+
+    // 酒水推荐
+    public function drinksAPi()
+    {
+        $drinksInfo = GoodsModel::where(['cat_id'=>2])->get();
+        // dd($drinksInfo);
+        return json_encode($drinksInfo);
+    }
+
+    // 猜你喜欢
+    public function likeApi()
+    {
+        $likeInfo = GoodsModel::orderBy('goods_id','desc')->limit(6)->get();
+        // dd($likeInfo);
+        return json_encode($likeInfo);
+    }
+
+    // 分类接口
+    public function catApi()
+    {
+        $catInfo = CatModel::get();
+        return json_decode($catInfo);
+    }
+
+    // 品牌接口
+    public function brandApi()
+    {
+        $id = request()->all();
+        // $catInfo = CatModel::where(['cat_id'=>3])->get();
+        // $id = $catInfo[0]['cat_id'];
+        // dd($id);
+        $gbcInfo = BrandModel::where('brand.cat_id','=',$id)->get()->toArray();
+        // dd($gbcInfo);
+        return json_encode($gbcInfo);
+    }
+
+    // 品牌商品接口
+    public function brGroApi()
+    {
+        $id = request()->all();
+        // $catInfo = BrandModel::where(['brand_id'=>28])->get()->toArray();
+        // // dd($catInfo);
+        // $id = $catInfo[0]['brand_id'];
+        // // dd($id);
+        $brGroInfo = GoodsModel::where('goods.brand_id','=',$id)->get()->toArray();
+        // dd($brGroInfo);
+        return json_encode($brGroInfo);
+    }
+
+    // 商品详情
+    public function gdetailsApi()
+    {
+        // $brGroInfo = GoodsModel::where(['goods_id'=>20])->first()->toArray();
+        // // dd($brGroInfo);
+        // $id = $brGroInfo['goods_id'];
+        // dd($id);
+        $betInfo = BetModel::get();
+        // dd($betInfo);
+
+    } 
 }

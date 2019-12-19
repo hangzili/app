@@ -35,15 +35,18 @@
     </tr>
 <?php foreach($list as $k=>$v){ ?>
     <tr>
-        <td><?php echo $v['brand_id']?></td>
-        <td><?php echo $v['c_name']?></td>
-        <td><?php echo $v['b_name']?></td>
-        <td><?php echo $v['create_time']?></td>
-        <td><input type="submit" name="del" value="删除" class="submit" id="<?php echo $v['brand_id']?>" javascript:0; /></td>
+        <td><?php echo $v->brand_id ?></td>
+        <td><?php echo $v->c_name ?></td>
+        <td><?php echo $v->b_name ?></td>
+        <td><?php echo $v->create_time ?></td>
+        <td><input type="submit" name="del" value="删除" class="submit" id="<?php echo $v->brand_id ?>" javascript:0; /></td>
     </tr>
 <?php }?>
 </table>
+<center>{{ $list->links() }}</center>
 @endsection
+
+
 <script src="/uploadify/jquery.js"></script>
 <script>
     $(document).ready(function(){

@@ -7,22 +7,25 @@
         <thead>
             <tr>
                 <td>ID</td>
-                <td>类型名称</td>
+                <td>商品id</td>
+                <td>属性id</td>
+                <td>属性值id</td>
                 <td>操作</td>
             </tr>
         </thead>
-    @foreach($typeInfo as $k => $v)
+    @foreach($betInfo as $k => $v)
         <tbody>
             <tr>
-                <td>{{$v->t_id}}</td>
+                <td>{{$v->b_id}}</td>
+                <td>{{$v->g_name}}</td>
                 <td>{{$v->t_name}}</td>
-                <td><button type="button" class="btn del btn-danger">删除</button></td>
+                <td>{{$v->a_name}}</td>
+                <td><button type="button" id="{{$v['b_id']}}" class="btn del btn-danger">删除</button></td>
             </tr>
         </tbody>
     @endforeach
     </table>
-    <center>{{ $typeInfo->links() }}</center>
-
+    <center>{{ $betInfo->links() }}</center>
 </div>
 @endsection
 <script src="/index/js/jquery.min.js?v=2.1.4"></script>
@@ -30,17 +33,17 @@
     // 删除
     $(document).on('click','.del',function(){
         // alert(111);return;
-        var t_id = $(this).attr('id');
+        var b_id = $(this).attr('id');
         $.ajax({
-            url:"/type/del?t_id="+t_id,
+            url:"/bet/del?b_id="+b_id,
             dataType:"json",
             success:function(res){
                 if(res.code == 200){
                     alert(res.msg);
-                    location.href="/type/typelist";
+                    location.href="/bet/betlist";
                 }else{
                     alert(res.msg);
-                    location.href="/type/typelist";
+                    location.href="/bet/betlist";
                 }
             }
         })
