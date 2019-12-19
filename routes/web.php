@@ -154,6 +154,7 @@ Route::prefix('api')->group(function () {
 //前台商品详情页的接口
 Route::any("api/goods_list","Api\GoodslistController@goods_list");//前台商品详情接口
 Route::any("api/goods_sku","Api\GoodslistController@goods_sku");//前台商品详情sku接口
+Route::any("api/type_attr","Api\GoodslistController@type_attr");//前台商品详情sku接口2
 
 
 
