@@ -23,8 +23,15 @@ class GoodslistController extends Controller
         // $goods = GoodsModel::where(['goods_id'=>21])->get()->toArray();
         // $id = $goods[0]['goods_id'];
         $id = $request->all();
-        $goodsTypeInfo = BetModel::join('type','between.t_id','type.t_id')->where(['between.goods_id'=>$id])->select('type.t_name','type.t_id')->distinct('type.t_name')->get();
-        // dd($goodsTypeInfo);
+        $goodsTypeInfo = BetModel::join('type','between.t_id','type.t_id')->where(['between.goods_id'=>$id])->select('type.t_name','type.t_id')->distinct('type.t_name')->get()->toArray();
+        $arr=[];
+        foreach($goodsTypeInfo as $k=>$v){
+            $goodsAttrInfo = BetModel::join('attr','between.a_id','attr.a_id')->where(['between.goods_id'=>$id,'between.t_id'=>$v['t_id']])->get()->toArray();
+            // $goodsTypeInfo[$k] =$goodsAttrInfo;
+            array_push($goodsTypeInfo[$k],$goodsAttrInfo);
+        }
+        
+        // dump($goodsTypeInfo);
         return json_encode($goodsTypeInfo);
     }
 
