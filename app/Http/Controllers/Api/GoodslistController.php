@@ -42,7 +42,7 @@ class GoodslistController extends Controller
         $id = $goods[0]['goods_id'];
         // $id = $request->all();
         $goodsAttrInfo = BetModel::join('attr','between.a_id','attr.a_id')->where(['between.goods_id'=>$id])->get()->toArray();
-        dd($goodsAttrInfo);
+        //dd($goodsAttrInfo);
         return json_encode($goodsAttrInfo);
     }
 }
