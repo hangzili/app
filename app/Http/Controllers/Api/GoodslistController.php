@@ -20,16 +20,22 @@ class GoodslistController extends Controller
     //根据商品id获取商品属性
     public function goods_sku(Request $request)
     {
+        // $goods = GoodsModel::where(['goods_id'=>21])->get()->toArray();
+        // $id = $goods[0]['goods_id'];
         $id = $request->all();
-        $goodsTypeInfo = BetModel::join('type','between.t_id','type.t_id')->where(['between.goods_id'=>$id])->get();
+        $goodsTypeInfo = BetModel::join('type','between.t_id','type.t_id')->where(['between.goods_id'=>$id])->select('type.t_name','type.t_id')->distinct('type.t_name')->get();
+        // dd($goodsTypeInfo);
         return json_encode($goodsTypeInfo);
     }
 
     // 根据属性id查询属性值
     public function type_attr(Request $request)
     {
-        $id = $request->all();
-        $goodsAttrInfo = BetModel::join('attr','between.a_id','attr.a_id')->where(['between.goods_id'=>$id])->get();
+        $goods = GoodsModel::where(['goods_id'=>18])->get()->toArray();
+        $id = $goods[0]['goods_id'];
+        // $id = $request->all();
+        $goodsAttrInfo = BetModel::join('attr','between.a_id','attr.a_id')->where(['between.goods_id'=>$id])->get()->toArray();
+        dd($goodsAttrInfo);
         return json_encode($goodsAttrInfo);
     }
 }
