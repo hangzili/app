@@ -149,6 +149,9 @@ Route::prefix('api')->group(function () {
     Route::any("brGroApi","Api\ApiController@brGroApi");//前台品牌商品接口
     Route::any("gdetailsApi","Api\ApiController@gdetailsApi");//前台商品详情接口
 });
+//前台商品详情页的接口
+Route::any("api/goods_list","Api\GoodslistController@goods_list");//前台商品详情接口
+Route::any("api/goods_sku","Api\GoodslistController@goods_sku");//前台商品详情sku接口
 
 
 
