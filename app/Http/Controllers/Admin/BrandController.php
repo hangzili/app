@@ -34,7 +34,8 @@ class BrandController extends Controller
     public function list()
     {
         $model = new BrandModel;
-        $list = $model -> join('cat','brand.cat_id','=','cat.cat_id')->get()->toArray();
+        $list = $model -> join('cat','brand.cat_id','=','cat.cat_id')->paginate(5);
+        // $list = $list['data'];
         // dd($list);
         return view("brand/list",['list'=>$list]);
     }

@@ -1,9 +1,7 @@
 <?php
 
 namespace App\Model;
-
 use Illuminate\Database\Eloquent\Model;
-
 class BetModel extends Model
 {
     protected $table = 'between';

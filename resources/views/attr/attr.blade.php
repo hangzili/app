@@ -13,10 +13,12 @@
     <div class="ibox-content">
         <form class="form-horizontal">
 
+            
+
             <div class="form-group">
-                <label class="col-sm-3 control-label">属性名称</label>
+                <label class="col-sm-3 control-label">属性值名称</label>
                 <div class="col-sm-8">
-                    <input type="text" placeholder="属性名称" name="a_name" class="form-control">
+                    <input type="text" placeholder="属性值名称" name="a_name" class="form-control">
                 </div>
             </div>
 
@@ -33,10 +35,8 @@
 <script>
     $(document).on('click','.btn',function(){
         var data = {};
-        var t_id = $("select[name='t_id']").val();
         var a_name = $("input[name='a_name']").val();
         // console.log(t_id);return;
-        data.t_id = t_id;
         data.a_name = a_name;
         $.ajax({
             url:"/attr/doattr",

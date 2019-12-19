@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Http\Controllers\Admin;
-
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\CatModel;
@@ -16,6 +14,7 @@ class GoodsController extends Controller
         // dd($catAll);
         return view ("goods/add",['catAll'=>$catAll]);
     }
+
 
     public function ajax()
     {
@@ -58,7 +57,7 @@ class GoodsController extends Controller
         $model = new GoodsModel;
         $list = $model->join('cat','cat.cat_id','=','goods.cat_id')
                       ->join('brand','brand.brand_id','=','goods.brand_id')
-                      ->get()->toArray();
+                      ->paginate(3);
         // dd($list);
         return view('goods/list',['list'=>$list]);
     }

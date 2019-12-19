@@ -35,11 +35,6 @@ Route::any("goods/up","Admin\GoodsController@up");
 Route::any("goods/add_do","Admin\GoodsController@add_do");
 Route::any("goods/list","Admin\GoodsController@list");
 Route::any("goods/del","Admin\GoodsController@del");
-
-
-
-
-
 // 分类表
 Route::any("cat/up","Admin\CatController@up");
 Route::any("cat/add","Admin\CatController@add");
@@ -47,21 +42,11 @@ Route::any("cat/add_do","Admin\CatController@add_do");
 Route::any("cat/list","Admin\CatController@list");
 Route::any("cat/del","Admin\CatController@del");
 
-
-
 // 品牌表
 Route::any("brand/add","Admin\BrandController@add");
 Route::any("brand/add_do","Admin\BrandController@add_do");
 Route::any("brand/list","Admin\BrandController@list");
 Route::any("brand/del","Admin\BrandController@del");
-
-
-
-
-
-
-
-
 
 
 
@@ -92,6 +77,14 @@ Route::prefix('rbac')->group(function () {
     Route::any("do_role_permi","Rbac\RolePermiController@do_role_permi");//角色权限执行
     Route::any("role_permi_list","Rbac\RolePermiController@role_permi_list");//角色权限展示
 
+});
+
+// 关系表
+Route::prefix('bet')->group(function () {
+    Route::any("betadd","Bet\BetController@betadd");//视图
+    Route::any("dobetadd","Bet\BetController@dobetadd");//添加执行
+    Route::any("betlist","Bet\BetController@betlist");//展示
+    Route::any("del","Bet\BetController@del");//删除
 });
 
 // 类型
@@ -148,6 +141,13 @@ Route::prefix('api')->group(function () {
     Route::any("loginApi","Api\ApiController@loginApi");//前台登录接口
     Route::any("addbakeApi","Api\ApiController@addbakeApi");//前台银行卡添加接口
     Route::any("listbakeApi","Api\ApiController@listbakeApi");//前台银行卡展示接口
+    Route::any("highApi","Api\ApiController@highApi");//前台精品推荐接口
+    Route::any("drinksAPi","Api\ApiController@drinksAPi");//前台酒水推荐接口
+    Route::any("likeApi","Api\ApiController@likeApi");//前台猜你喜欢接口
+    Route::any("catApi","Api\ApiController@catApi");//前台分类接口
+    Route::any("brandApi","Api\ApiController@brandApi");//前台品牌接口
+    Route::any("brGroApi","Api\ApiController@brGroApi");//前台品牌商品接口
+    Route::any("gdetailsApi","Api\ApiController@gdetailsApi");//前台商品详情接口
 });
 
 

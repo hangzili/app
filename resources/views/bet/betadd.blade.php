@@ -12,7 +12,7 @@
 <body>
     <form>
         <div class="form-group">
-            <label class="col-sm-2 control-label">属性</label>
+            <label class="col-sm-2 control-label">商品</label>
             <div class="col-sm-10">
                 <select class="form-control m-b" name="goods_id">
                 @foreach($goodsInfo as $k => $v)

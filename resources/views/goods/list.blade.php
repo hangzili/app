@@ -40,19 +40,19 @@
     </tr>
 <?php foreach($list as $k=>$v){ ?>
     <tr>
-        <td><?php echo $v['goods_id']?></td>
-        <td><?php echo $v['g_name']?></td>
-        <td><?php echo $v['g_price']?></td>
-        <td><?php echo $v['g_num']?></td>
-        <td><?php echo $v['g_desc']?></td>
-        <td><img src="<?php echo $v['g_img']?>"  width='100px'></td>
-        <td><?php echo $v['c_name']?></td>
-        <td><?php echo $v['b_name']?></td>
-        <td><?php echo $v['create_time']?></td>
-        <td><input type="submit" name="del" value="删除" class="submit" id="<?php echo $v['goods_id']?>" javascript:0; /></td>
+        <td><?php echo $v->goods_id ?></td>
+        <td><?php echo $v->g_name ?></td>
+        <td><?php echo $v->g_price ?></td>
+        <td><?php echo $v->g_desc ?></td>
+        <td><img src="<?php echo $v->g_img ?>"  width='100px'></td>
+        <td><?php echo $v->c_name ?></td>
+        <td><?php echo $v->b_name ?></td>
+        <td><?php echo $v->create_time ?></td>
+        <td><input type="submit" name="del" value="删除" class="submit" id="<?php echo $v->goods_id ?>" javascript:0; /></td>
     </tr>
 <?php }?>
 </table>
+<center>{{ $list->links() }}</center>
 @endsection
 <script src="/uploadify/jquery.js"></script>
 <script>

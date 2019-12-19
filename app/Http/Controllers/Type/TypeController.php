@@ -13,6 +13,7 @@ class TypeController extends Controller
         return view('type.type');
     }
 
+    // 执行添加
     public function dotype(Request $request)
     {
         $t_name = $request->input('t_name');
@@ -28,9 +29,22 @@ class TypeController extends Controller
         }
     }
 
+    // 展示
     public function typelist()
     {
-        $typeInfo = TypeModel::get();
+        $typeInfo = TypeModel::paginate(10);
         return view('type.typelist',['typeInfo'=>$typeInfo]);
+    }
+
+    // 删除
+    public function del(Request $request)
+    {
+        $t_id = $request->input('t_id');
+        $attrInfo = TypeModel::where(['t_id'=>$t_id])->delete();
+        if($attrInfo){
+            return json_encode(['code'=>200,'msg'=>'删除成功']);
+        }else{
+            return json_encode(['code'=>201,'msg'=>'删除失败']);
+        }
     }
 }

@@ -13,9 +13,9 @@
     <div class="ibox-content">
         <form class="form-horizontal">
             <div class="form-group">
-                <label class="col-sm-3 control-label">类型名称</label>
+                <label class="col-sm-3 control-label">属性名称</label>
                 <div class="col-sm-8">
-                    <input type="text" placeholder="类型名称" name="t_name" class="form-control">
+                    <input type="text" placeholder="属性名称" name="t_name" class="form-control">
                 </div>
             </div>
             <div class="form-group">
