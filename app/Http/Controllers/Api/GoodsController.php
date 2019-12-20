@@ -11,7 +11,7 @@ class GoodsController extends Controller
     // 前台展示
     public function goods(Request $request)
     {
-        $goodsInfo = GoodsModel::limit(15)->get();
+        $goodsInfo = GoodsModel::limit(15)->get()->toArray();
         // dd($goodsInfo);
         return json_encode($goodsInfo);
     }
@@ -22,11 +22,12 @@ class GoodsController extends Controller
         $data = $request->all();
         // $data = "asc";
 
-        if($data == 'desc'){
+        if($data['order'] == 'desc'){
             $goodsInfo = GoodsModel::orderBy('g_num','asc')->limit(15)->get()->toArray();
-        }else if($data == 'asc'){
+        }else if($data['order'] == 'asc'){
             $goodsInfo = GoodsModel::orderBy('g_num','desc')->limit(15)->get()->toArray();
         }
+        dd($goodsInfo);
         return json_encode($goodsInfo);
         // dd($goodsInfo);
     }
@@ -36,12 +37,12 @@ class GoodsController extends Controller
     {
         $data = $request->all();
         // $data = 'desc';
-        if($data == 'desc'){
+        if($data['order'] == 'desc'){
             $goodsInfo = GoodsModel::orderBy('g_num','asc')->limit(15)->get()->toArray();
-        }else if($data == 'asc'){
+        }else if($data['order'] == 'asc'){
             $goodsInfo = GoodsModel::orderBy('g_num','desc')->limit(15)->get()->toArray();
         }
-        // dd($goodsInfo);
+        dd($goodsInfo);
         return json_encode($goodsInfo);
     }
 }

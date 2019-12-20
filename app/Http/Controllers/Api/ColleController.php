@@ -33,8 +33,8 @@ class ColleController extends Controller
     // 前台收藏展示
     public function listApi()
     {
-        $colleInfo = ColleModel::join('goods','collection.goods_id','=','goods.goods_id')->get();
-        // dd($colleInfo);
+        $colleInfo = ColleModel::join('goods','collection.goods_id','=','goods.goods_id')->get()->toArray();
+        dd($colleInfo);
         return json_encode(['code'=>200,'colleInfo'=>$colleInfo]);
     }
 }
