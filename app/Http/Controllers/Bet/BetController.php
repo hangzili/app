@@ -41,10 +41,6 @@ class BetController extends Controller
     // 展示
     public function betlist()
     {
-        $betInfo = BetModel::get();
-        return view('bet.betlist',['betInfo'=>$betInfo]);
-    }
-}
         $betInfo = BetModel::join('goods','goods.goods_id','=','between.goods_id')
         ->join('attr','attr.a_id','=','between.a_id')
         ->join('type','type.t_id','=','between.t_id')
