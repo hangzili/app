@@ -27,7 +27,7 @@ class GoodsController extends Controller
         }else if($data['order'] == 'asc'){
             $goodsInfo = GoodsModel::orderBy('g_num','desc')->limit(15)->get()->toArray();
         }
-        dd($goodsInfo);
+        // dd($goodsInfo);
         return json_encode($goodsInfo);
         // dd($goodsInfo);
     }
@@ -42,7 +42,7 @@ class GoodsController extends Controller
         }else if($data['order'] == 'asc'){
             $goodsInfo = GoodsModel::orderBy('g_num','desc')->limit(15)->get()->toArray();
         }
-        dd($goodsInfo);
+        // dd($goodsInfo);
         return json_encode($goodsInfo);
     }
 }
