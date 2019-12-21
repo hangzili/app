@@ -82,15 +82,23 @@ class ApiController extends Controller
     // 前台登录接口
     public function loginApi(Request $request)
     {
+
         $user_name = $request->input('user_name');
+        // dd($user_name);
         $user_pwd = md5($request->input('user_pwd'));
         $loginInfo = UserModel::where(['user_name'=>$user_name])->first();
+    //    dd($loginInfo);
+        $u_id = $loginInfo['u_id'];
+        // dd($u_id);
+        $data = Cookie::queue('user',$u_id);
+        // dd($data);
         if(empty($loginInfo)){
             echo json_encode('没有此用户，请注册');exit;
         }else if($user_pwd !== $loginInfo->user_pwd){
             echo json_encode('用户密码不对，请输入正确的密码');exit;
         }
-        Cookie::queue('user',$loginInfo['u_id']);
+        
+        // echo Cookie::get('user');
         echo json_encode('登陆成功');exit;
     }
 

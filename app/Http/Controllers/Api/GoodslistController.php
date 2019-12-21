@@ -8,6 +8,8 @@ use App\Model\GoodsModel;
 use App\Model\BetModel;
 use App\Model\AttrModel;
 use App\Model\TypeModel;
+
+
 class GoodslistController extends Controller
 {
     //商品详情页展示商品

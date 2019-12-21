@@ -159,5 +159,14 @@ Route::any("api/goods_list","Api\GoodslistController@goods_list");//前台商品
 Route::any("api/goods_sku","Api\GoodslistController@goods_sku");//前台商品详情sku接口
 Route::any("api/type_attr","Api\GoodslistController@type_attr");//前台商品详情sku接口2
 
+Route::any("api/goods","Api\GoodsController@goods");//前台商品展示接口
+Route::any("api/goods_2","Api\GoodsController@goods_2");//前台商品展示接口2
+Route::any("api/goods_3","Api\GoodsController@goods_3");//前台商品展示接口3
+
+Route::any("api/carApi","Api\ApisController@carApi");//购物车展示
+
+
+Route::any("api/addrelistApi","Api\AddressController@addrelistApi");//前台收货地址展示接口
+
 
 
