@@ -157,15 +157,11 @@ class ApiController extends Controller
         return json_encode($brGroInfo);
     }
 
-    // 商品详情
-    public function gdetailsApi()
+    // 前台购物车删除接口
+    public function goodsDelApi(Request $request)
     {
-        // $brGroInfo = GoodsModel::where(['goods_id'=>20])->first()->toArray();
-        // // dd($brGroInfo);
-        // $id = $brGroInfo['goods_id'];
-        // dd($id);
-        $betInfo = BetModel::get();
-        // dd($betInfo);
-
-    } 
+        $id = $request->all();
+        $carInfo = CarModel::where('goods_id','=',$id)->delete();
+        return json_encode($carInfo);
+    }
 }
