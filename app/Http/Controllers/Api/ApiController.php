@@ -12,6 +12,7 @@ use App\Model\GoodsModel;
 use App\Model\CatModel;
 use App\Model\BrandModel;
 use App\Model\BetModel;
+use App\Model\CarModel;
 
 
 
@@ -162,6 +163,34 @@ class ApiController extends Controller
     {
         $id = $request->all();
         $carInfo = CarModel::where('goods_id','=',$id)->delete();
+        return json_encode($carInfo);
+    }
+
+    // 前台库存和购物车数量接口
+    public function gumcum(Request $request)
+    {
+        // $goods = GoodsModel::where(['goods_id'=>4])->get()->toArray();
+        // $id = $goods[0]['goods_id'];
+        $id = $request->all();
+        // dd($id);
+        $user = 2;
+        $carInfo = CarModel::join('goods','car.goods_id','=','goods.goods_id')->where('car.user_id','=',$user)->where('car.goods_id','=',$id)->get()->toArray();
+        // dd($carInfo);
+        return json_encode($carInfo);
+    }
+
+    // 前台购物车数量修改
+    public function carupnumApi(Request $request)
+    {
+        // $goods = GoodsModel::where(['goods_id'=>4])->get()->toArray();
+        // $id = $goods[0]['goods_id'];
+        // $num = 30;
+        $id = $request->all('goods_id');
+        $num = $request->all('num');
+        $user = 1;
+
+        $carInfo = CarModel::where('goods_id','=',$id)->where('user_id','=',$user)->update(['c_num'=>$num]);
+        // dd($carInfo);
         return json_encode($carInfo);
     }
 }
