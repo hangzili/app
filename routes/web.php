@@ -153,6 +153,7 @@ Route::prefix('api')->group(function () {
     Route::any("gdetailsApi","Api\ApiController@gdetailsApi");//前台商品详情接口
     Route::any("ColleApi","Api\ColleController@ColleApi");//前台收藏添加接口
     Route::any("listApi","Api\ColleController@listApi");//前台收藏展示接口
+    Route::any("goodsDelApi","Api\ApiController@goodsDelApi");//前台购物车删除接口
 });
 //前台商品详情页的接口
 Route::any("api/goods_list","Api\GoodslistController@goods_list");//前台商品详情接口
