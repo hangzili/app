@@ -47,6 +47,9 @@ Route::any("brand/add","Admin\BrandController@add");
 Route::any("brand/add_do","Admin\BrandController@add_do");
 Route::any("brand/list","Admin\BrandController@list");
 Route::any("brand/del","Admin\BrandController@del");
+// 加入购物车
+Route::any("car/is_login","Admin\CarController@is_login");
+Route::any("car/add","Admin\CarController@add");
 
 
 

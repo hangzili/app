@@ -31,18 +31,18 @@ class GoodslistController extends Controller
             array_push($goodsTypeInfo[$k],$goodsAttrInfo);
         }
         
-        // dump($goodsTypeInfo);
+        dump($goodsTypeInfo);
         return json_encode($goodsTypeInfo);
     }
 
     // 根据属性id查询属性值
-    public function type_attr(Request $request)
-    {
-        $goods = GoodsModel::where(['goods_id'=>18])->get()->toArray();
-        $id = $goods[0]['goods_id'];
-        // $id = $request->all();
-        $goodsAttrInfo = BetModel::join('attr','between.a_id','attr.a_id')->where(['between.goods_id'=>$id])->get()->toArray();
-        //dd($goodsAttrInfo);
-        return json_encode($goodsAttrInfo);
-    }
+    // public function type_attr(Request $request)
+    // {
+    //     $goods = GoodsModel::where(['goods_id'=>18])->get()->toArray();
+    //     $id = $goods[0]['goods_id'];
+    //     // $id = $request->all();
+    //     $goodsAttrInfo = BetModel::join('attr','between.a_id','attr.a_id')->where(['between.goods_id'=>$id])->get()->toArray();
+    //     //dd($goodsAttrInfo);
+    //     return json_encode($goodsAttrInfo);
+    // }
 }
