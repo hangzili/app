@@ -4,10 +4,10 @@ namespace App\Http\Middleware;
 
 use Closure;
 use App\Model\UserRoleModel;
-use App\Model\RegModel;
+use App\Model\HuserModel;
 use App\Model\RolePermiModel;
 use App\Model\PermiModel;
-use Illuminate\Support\Facades\Cookie;
+
 class Rbac
 {
     /**
@@ -20,15 +20,16 @@ class Rbac
     public function handle($request, Closure $next)
     {
         // 判断用户是否登录
-        if(empty(Cookie::get('adminuser'))){
-            echo '<script>alert("请先登录");window.location.href="/admin/login/login";</script>';exit;
+        $session = \Session::get('username');
+        if(empty($session)){
+            echo '<script>alert("请先登录");window.location.href="/rbac/login";</script>';exit;
         }else{
             // 如果有 把cookie取出来
-            $u_name = Cookie::get('adminuser');
+            $u_name = \Session::get('username');
             // 查询当前用户是什么角色
-            $user = new RegModel;
+            $user = new HuserModel;
             $role = new UserRoleModel;
-            $userAll = $user->where(['u_name'=>$u_name])->join("user_role","user_role.u_id","=","user.u_id")
+            $userAll = $user->where(['u_name'=>$u_name])->join("user_role","user_role.u_id","=","huser.u_id")
             ->first()->toArray();
             // dd($userAll);
             // 根据查询出来的角色查询该角色对应的权限
@@ -51,7 +52,7 @@ class Rbac
             }
             // dd($data);
             if(empty($data)){
-                echo '<script>alert("您的权限不够，请联系管理员");window.location.href="admin/index/index"</script>';
+                echo '<script>alert("您的权限不够，请联系管理员");window.location.href="/"</script>';
             }
         }
         return $next($request);

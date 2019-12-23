@@ -49,7 +49,7 @@ class ImgController extends Controller
     // 展示
     public function imglist()
     {
-        $imgInfo = ImgModel::get();
+        $imgInfo = ImgModel::paginate(10);
         return view('img.imglist',['imgInfo'=>$imgInfo]);
     }
 

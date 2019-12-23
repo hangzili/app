@@ -31,7 +31,7 @@ class PermiController extends Controller
 
     public function permilist()
     {
-        $permInfo = PermiModel::get();
+        $permInfo = PermiModel::paginate(10);
         return view('rbac.permilist',['permInfo'=>$permInfo]);
     }
 }
