@@ -27,16 +27,17 @@ class ColleController extends Controller
             'u_id' => $user
         ]);
         
-        return json_encode(['code'=>200,'colleInfo'=>$colleInfo]);
+        return json_encode($colleInfo);
     }
 
     // 前台收藏展示
     public function listApi()
     {
-        $user = cookie::get('user');
-        dd($user);
+        $id = 1;
+        // $user = cookie::get('user');
+        // dd($user);
         $colleInfo = ColleModel::join('goods','collection.goods_id','=','goods.goods_id')->where('collection.u_id','=',$id)->get()->toArray();
-        dd($colleInfo);
-        return json_encode(['code'=>200,'colleInfo'=>$colleInfo]);
+        // dd($colleInfo);
+        return json_encode($colleInfo);
     }
 }
