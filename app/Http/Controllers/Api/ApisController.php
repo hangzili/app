@@ -25,9 +25,8 @@ class ApisController extends Controller
 //购物车删除
     public function cardel(Request $request)
     {
-        $info = request()->all();
+        $goods_id = request()->all();
         $user_id=\Session::get('user');
-        $goods_id= $info['goods_id'];
         $wheres = ['goods_id'=>$goods_id];
         $where = ['user_id' => $user_id];
         $res =CarModel::where($where)->where($wheres)->delete();
@@ -36,11 +35,8 @@ class ApisController extends Controller
     //收藏删除
     public function coldel(Request $request)
     {
-        $info = request()->all();
-//        $u_id=\Session::get('user');
-        $goods_id=4;
-        $u_id=8;
-//        $goods_id= $info['goods_id'];
+        $goods_id = request()->all();
+        $u_id=\Session::get('user');
         $wheres = ['goods_id'=>$goods_id];
         $where = ['u_id' => $u_id];
         $res =ColleModel::where($where)->where($wheres)->delete();
