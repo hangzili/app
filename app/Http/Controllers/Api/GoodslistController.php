@@ -33,7 +33,7 @@ class GoodslistController extends Controller
             array_push($goodsTypeInfo[$k],$goodsAttrInfo);
         }
         
-        dump($goodsTypeInfo);
+        // dump($goodsTypeInfo);
         return json_encode($goodsTypeInfo);
     }
 

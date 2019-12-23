@@ -20,7 +20,7 @@ class ColleController extends Controller
         // dd($goodsInfo);  
         $id = $goodsInfo[0]['goods_id'];
         $time = time();
-        $user = cookie::get('user');
+        $user = \Session::get('user');
         $colleInfo = ColleModel::create([
             'goods_id' => $id,
             'time' => $time,
@@ -33,8 +33,8 @@ class ColleController extends Controller
     // 前台收藏展示
     public function listApi()
     {
-        $id = 1;
-        // $user = cookie::get('user');
+        // $id = 1;
+        $id = \Session::get('user');
         // dd($user);
         $colleInfo = ColleModel::join('goods','collection.goods_id','=','goods.goods_id')->where('collection.u_id','=',$id)->get()->toArray();
         // dd($colleInfo);

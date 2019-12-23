@@ -11,7 +11,7 @@ class CarController extends Controller
     public function is_login(Request $request)
     {
         // $all = $request->all();
-        $user_id = Cookie::get('user');
+        $user_id = \Session::get('user');
         if(empty($user_id)){
             echo "<script>alert('请先登录！')</script>";
             exit;
@@ -22,15 +22,15 @@ class CarController extends Controller
 
     public function add()
     {
-        $u_id = 1;
-        Cookie::queue('user',$u_id);
+        // $u_id = 1;
+        // Cookie::queue('user',$u_id);
         $post = request()->all();
         // $goods_id = explode($post);
         $goods_id = json_decode($post['goods_id']);
         // $goods_id = explode($post);
         // $goods_id = intval($goods_id);
         // var_dump($goods_id);
-        $user_id = Cookie::get('user');
+        $user_id = \Session::get('user');
         $user_id = intval($user_id);
         // var_dump($user_id);
         $model = new CarModel;

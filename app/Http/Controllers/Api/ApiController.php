@@ -34,7 +34,7 @@ class ApiController extends Controller
     public function addbakeApi(Request $request)
     {
         $info = $request->all();
-        $user = cookie::get('user');
+        $user = \Session::get('user');
         $data=['bank_time'=>time(),
             'bank_name'=>$info['bank_name'],
             'user_name'=>$info['user_name'],
@@ -48,7 +48,7 @@ class ApiController extends Controller
     // 前台银行卡展示接口
     public function listbakeApi(Request $request)
     {
-        $id = cookie::get('user');
+        $id = \Session::get('user');
         $bankInfo = BankModel::join('user','user.u_id','=','bank.user_id')->where('user.u_id','=',$id)->limit(4)->get();
         return json_encode(['code'=>200,'bankInfo'=>$bankInfo]);
     }
@@ -91,15 +91,15 @@ class ApiController extends Controller
     //    dd($loginInfo);
         $u_id = $loginInfo['u_id'];
         // dd($u_id);
-        $data = Cookie::queue('user',$u_id);
+        
         
         if(empty($loginInfo)){
             echo json_encode('没有此用户，请注册');exit;
         }else if($user_pwd !== $loginInfo->user_pwd){
             echo json_encode('用户密码不对，请输入正确的密码');exit;
         }
-        
-        echo Cookie::get('user');
+        $data = \Session::put(['user'=>$u_id]);
+        // echo Cookie::get('user');
         echo json_encode('登陆成功');exit;
     }
 
