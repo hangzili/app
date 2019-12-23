@@ -174,6 +174,7 @@ Route::prefix('api')->group(function () {
     Route::any("goodsDelApi","Api\ApiController@goodsDelApi");//前台购物车删除接口
     Route::any("gumcum","Api\ApiController@gumcum");//前台商品数量和购物车数量接口
     Route::any("carupnumApi","Api\ApiController@carupnumApi");//前台修改购物车数量接口
+    Route::any("session","Api\ApiController@session");//前台修改购物车数量接口
 });
 //前台商品详情页的接口
 Route::any("api/goods_list","Api\GoodslistController@goods_list");//前台商品详情接口

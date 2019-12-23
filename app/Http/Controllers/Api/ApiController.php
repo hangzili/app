@@ -200,4 +200,12 @@ class ApiController extends Controller
         // dd($carInfo);
         return json_encode($carInfo);
     }
+
+    // 删除前台session()
+    public function session()
+    {
+        $id = \Session::get('user');
+        $user = UserModel::where(['u_id'=>$id])->get()->toArray();
+        return json_encode($user);
+    }
 }
