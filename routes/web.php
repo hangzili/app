@@ -167,6 +167,8 @@ Route::any("api/goods_2","Api\GoodsController@goods_2");//前台商品展示接�
 Route::any("api/goods_3","Api\GoodsController@goods_3");//前台商品展示接口3
 
 Route::any("api/carApi","Api\ApisController@carApi");//购物车展示
+Route::any("api/cardel","Api\ApisController@cardel");//购物车删除
+Route::any("api/coldel","Api\ApisController@coldel");//收藏删除
 
 
 Route::any("api/addrelistApi","Api\AddressController@addrelistApi");//前台收货地址展示接口
