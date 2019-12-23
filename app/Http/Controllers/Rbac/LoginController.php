@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Model\HuserModel;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Redis;
+// use App\Http\Controllers\Rbac\Redis;
 use DB;
 
 class LoginController extends Controller

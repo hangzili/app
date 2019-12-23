@@ -122,7 +122,7 @@ class ApiController extends Controller
     // 猜你喜欢
     public function likeApi()
     {
-        $likeInfo = GoodsModel::orderBy('goods_id','desc')->limit(6)->get();
+        $likeInfo = GoodsModel::orderBy('goods_id','desc')->limit(4)->get();
         // dd($likeInfo);
         return json_encode($likeInfo);
     }
