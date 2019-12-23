@@ -91,14 +91,14 @@ class ApiController extends Controller
         $u_id = $loginInfo['u_id'];
         // dd($u_id);
         $data = Cookie::queue('user',$u_id);
-        // dd($data);
+        
         if(empty($loginInfo)){
             echo json_encode('没有此用户，请注册');exit;
         }else if($user_pwd !== $loginInfo->user_pwd){
             echo json_encode('用户密码不对，请输入正确的密码');exit;
         }
         
-        // echo Cookie::get('user');
+        echo Cookie::get('user');
         echo json_encode('登陆成功');exit;
     }
 

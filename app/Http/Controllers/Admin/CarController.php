@@ -42,9 +42,9 @@ class CarController extends Controller
         );
         // var_dump($sql);
         if($sql){
-            echo 1;
+            return json_encode(1);
         }else{
-            echo 0;
+            return json_encode(0);
         }
     }
 }
