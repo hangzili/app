@@ -39,10 +39,11 @@ class GoodsController extends Controller
     {
         $data = $request->all();
         // $data = 'desc';
+        $cat_id = $data['cat_id'];
         if($data['order'] == 'desc'){
-            $goodsInfo = GoodsModel::orderBy('g_price','asc')->limit(15)->get()->toArray();
+            $goodsInfo = GoodsModel::orderBy('g_price','asc')->where('cat_id',$cat_id)->get()->toArray();
         }else if($data['order'] == 'asc'){
-            $goodsInfo = GoodsModel::orderBy('g_price','desc')->limit(15)->get()->toArray();
+            $goodsInfo = GoodsModel::orderBy('g_price','desc')->where('cat_id',$cat_id)->get()->toArray();
         }
         // dd($goodsInfo);
         return json_encode($goodsInfo);
