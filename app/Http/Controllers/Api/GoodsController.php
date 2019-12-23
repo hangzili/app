@@ -11,7 +11,9 @@ class GoodsController extends Controller
     // 前台展示
     public function goods(Request $request)
     {
-        $goodsInfo = GoodsModel::limit(15)->get()->toArray();
+        $data = $request->all();
+        $cat_id = $data['cat_id'];
+        $goodsInfo = GoodsModel::get()->where('cat_id',$cat_id)->toArray();
         // dd($goodsInfo);
         return json_encode($goodsInfo);
     }
