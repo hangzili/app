@@ -15,7 +15,7 @@ class ColleController extends Controller
     // 前台收藏添加接口
     public function ColleApi(Request $requets)
     {
-        // $id = request()->all();
+        $id = request()->all();
         $goodsInfo = GoodsModel::where(['goods_id'=>4])->get()->toArray();
         // dd($goodsInfo);  
         $id = $goodsInfo[0]['goods_id'];
