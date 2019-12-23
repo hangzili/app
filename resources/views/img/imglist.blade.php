@@ -23,6 +23,7 @@
         </tbody>
     @endforeach
     </table>
+    <center>{{ $imgInfo->links() }}</center>
 
 </div>
 @endsection

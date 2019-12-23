@@ -16,7 +16,6 @@
             <tr>
                 <td>{{$v->a_id}}</td>
                 <td>{{$v->a_name}}</td>
-                <td><button type="button" class="btn btn-danger">删除</button></td>
                 <td><button type="button" id="{{$v['a_id']}}" class="btn del btn-danger">删除</button></td>
             </tr>
         </tbody>

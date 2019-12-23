@@ -35,7 +35,7 @@ class RolePermiController extends Controller
     public function role_permi_list()
     {
         $RolePermiInfo = new RolePermiModel;
-        $RPInfo = $RolePermiInfo->join('role','role_permi.r_id','=','role.r_id')->join('permi','role_permi.p_id','=','permi.p_id')->get();
+        $RPInfo = $RolePermiInfo->join('role','role_permi.r_id','=','role.r_id')->join('permi','role_permi.p_id','=','permi.p_id')->paginate(10);
         return view('rbac.role_permi_list',['RPInfo'=>$RPInfo]);
     }
 }

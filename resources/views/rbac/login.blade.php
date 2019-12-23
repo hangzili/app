@@ -35,7 +35,7 @@
 
             <form class="m-t" role="form" action="index.html">
                 <div class="form-group">
-                    <input type="email" class="form-control" name="u_emali" placeholder="用户邮箱" required="">
+                    <input type="email" class="form-control" name="u_name" placeholder="用户名称" required="">
                 </div>
                 <div class="form-group">
                     <input type="password" class="form-control" name="u_pwd" placeholder="密码" required="">
@@ -64,9 +64,9 @@
 <script>
     $(document).on('click','.btn',function(){
         var data = {};
-        var u_emali = $("input[name='u_emali']").val();
+        var u_name = $("input[name='u_name']").val();
         var u_pwd = $("input[name='u_pwd']").val();
-        data.u_emali = u_emali;
+        data.u_name = u_name;
         data.u_pwd = u_pwd;
         $.ajax({
             url:"/rbac/dologin",

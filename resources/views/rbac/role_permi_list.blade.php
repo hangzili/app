@@ -23,6 +23,7 @@
         </tbody>
     @endforeach
     </table>
+    <center>{{ $RPInfo->links() }}</center>
 
 </div>
 

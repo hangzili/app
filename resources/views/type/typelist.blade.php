@@ -16,7 +16,7 @@
             <tr>
                 <td>{{$v->t_id}}</td>
                 <td>{{$v->t_name}}</td>
-                <td><button type="button" class="btn del btn-danger">删除</button></td>
+                <td><button type="button" id="{{$v->t_id}}" class="btn del btn-danger">删除</button></td>
             </tr>
         </tbody>
     @endforeach

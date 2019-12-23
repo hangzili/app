@@ -15,8 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::any('/','IndexController@index');
+Route::group(['middleware'=>'rbac'],function(){
 
-Route::any("goods/add","Admin\GoodsController@add");
+
 
 Route::any("coupons/add","Admin\CouponsController@add");//优惠券添加
 Route::any("coupons/add_do","Admin\CouponsController@add_do");//优惠券添加
@@ -55,10 +56,8 @@ Route::any("car/add","Admin\CarController@add");
 
 // RBAC
 Route::prefix('rbac')->group(function () {
-    Route::any("regis","Rbac\LoginController@regis");//用户注册视图
-    Route::any("doregis","Rbac\LoginController@doregis");//用户注册执行
-    Route::any("login","Rbac\LoginController@login");//用户登录视图
-    Route::any("dologin","Rbac\LoginController@dologin");//用户登录执行
+    
+    
 
     // 角色
     Route::any("role","Rbac\RoleController@role");//用户角色视图
@@ -95,13 +94,15 @@ Route::prefix('bet')->group(function () {
     Route::any("type","Type\TypeController@type");//类型视图
     Route::any("dotype","Type\TypeController@dotype");//类型添加执行
     Route::any("typelist","Type\TypeController@typelist");//类型展示
+    Route::any("del","Type\TypeController@del");//类型删除
 });
 
 // 属性
 Route::prefix('attr')->group(function () {
-    Route::any("attr","Attr\AttrController@attr");//类型视图
-    Route::any("doattr","Attr\AttrController@doattr");//类型视图
-    Route::any("attrlist","Attr\AttrController@attrlist");//类型视图
+    Route::any("attr","Attr\AttrController@attr");//属性视图
+    Route::any("doattr","Attr\AttrController@doattr");//属性执行添加
+    Route::any("attrlist","Attr\AttrController@attrlist");//属性展示
+    Route::any("del","Attr\AttrController@del");//属性删除
 });
 
 // 轮播图
@@ -111,13 +112,6 @@ Route::prefix('img')->group(function () {
     Route::any("up","Img\ImgController@up");//轮播图添加执行
     Route::any("imglist","Img\ImgController@imglist");//轮播图展示
     Route::any("del","Img\ImgController@del");//删除轮播图
-});
-
-// 关系表
-Route::prefix('bet')->group(function () {
-    Route::any("betadd","Bet\BetController@betadd");//视图
-    Route::any("dobetadd","Bet\BetController@dobetadd");//添加执行
-    Route::any("betlist","Bet\BetController@betlist");//展示
 });
 
 //前台收货地址添加
@@ -173,5 +167,13 @@ Route::any("api/coldel","Api\ApisController@coldel");//收藏删除
 
 Route::any("api/addrelistApi","Api\AddressController@addrelistApi");//前台收货地址展示接口
 
+});
+
+    
+Route::any("rbac/regis","Rbac\LoginController@regis");//用户注册视图
+    Route::any("rbac/doregis","Rbac\LoginController@doregis");//用户注册执行
+    Route::any("rbac/login","Rbac\LoginController@login");//用户登录视图
+    Route::any("rbac/dologin","Rbac\LoginController@dologin");//用户登录执行
+    Route::any("/exit","IndexController@exit");//退出登录执行
 
 

@@ -185,10 +185,16 @@ class ApiController extends Controller
         // $goods = GoodsModel::where(['goods_id'=>4])->get()->toArray();
         // $id = $goods[0]['goods_id'];
         // $num = 30;
+        // $id = $request->all();
+        // dd($id);
         $id = $request->all('goods_id');
         $num = $request->all('num');
-        $user = 1;
+        $id = $id['goods_id'];
+        $num = $num['num'];
+        // $num = 45;
+        // dd($id);
 
+        $user = 7;
         $carInfo = CarModel::where('goods_id','=',$id)->where('user_id','=',$user)->update(['c_num'=>$num]);
         // dd($carInfo);
         return json_encode($carInfo);

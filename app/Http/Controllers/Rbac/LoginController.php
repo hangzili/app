@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Rbac;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\HuserModel;
+use Illuminate\Support\Facades\Cookie;
+use Illuminate\Support\Facades\Redis;
 use DB;
 
 class LoginController extends Controller
@@ -43,16 +45,19 @@ class LoginController extends Controller
     // 用户登录执行
     public function dologin(Request $request)
     {
-        $u_emali = $request->all('u_emali');
+        $u_name = $request->all('u_name');
         $u_pwd = $request->all('u_pwd');
         // dd($u_emali);
-        $loginInfo = HuserModel::where(['u_emali'=>$u_emali,'u_pwd'=>$u_pwd])->first();
+        $loginInfo = HuserModel::where(['u_name'=>$u_name,'u_pwd'=>$u_pwd])->first();
         // dd($loginInfo);
         if(!$loginInfo){
             return json_encode(['code'=>203,'msg'=>'用户名或者密码不正确，请重新输入']);die;
         }
         if($loginInfo){
+            \Session::put(['username'=>$u_name]);
             return json_encode(['code'=>200,'msg'=>'登录成功']);
+           
+            // Redis::set('username',$u_name,86400);
         }else{
             return json_encode(['code'=>201,'msg'=>'登录失败']);
         }

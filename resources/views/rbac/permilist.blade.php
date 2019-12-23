@@ -21,6 +21,7 @@
         </tbody>
     @endforeach
     </table>
+    <center>{{ $permInfo->links() }}</center>
 
 </div>
 
