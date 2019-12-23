@@ -33,13 +33,9 @@ class ColleController extends Controller
     // 前台收藏展示
     public function listApi()
     {
-<<<<<<< Updated upstream
         // $id = 1;
         $id = \Session::get('user');
-=======
-        $id = 7;
-        // $user = cookie::get('user');
->>>>>>> Stashed changes
+
         // dd($user);
         $colleInfo = ColleModel::join('goods','collection.goods_id','=','goods.goods_id')->where('collection.u_id','=',$id)->get()->toArray();
         // dd($colleInfo);
