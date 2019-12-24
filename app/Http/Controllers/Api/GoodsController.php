@@ -15,11 +15,13 @@ class GoodsController extends Controller
         $cat_id = $data['cat_id'];
         if($cat_id==""){
             $goodsInfo = GoodsModel::get()->limit('10')->toArray();
+
+
         }else{
             $goodsInfo = GoodsModel::get()->where('cat_id',$cat_id)->toArray();
         }
         
-        // dd($goodsInfo);
+
         return json_encode($goodsInfo);
     }
 
