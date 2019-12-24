@@ -16,12 +16,12 @@ class ColleController extends Controller
     public function ColleApi(Request $request)
     {
         $id = request()->all();
-        $goodsInfo = GoodsModel::where(['goods_id'=>$id])->get()->toArray();
+        // $goodsInfo = GoodsModel::where(['goods_id'=>$id])->get()->toArray();
 
-        $goods_id = $request->all('goods_id');
-        $goods_id  = $goods_id['goods_id'];
-        $goodsInfo = GoodsModel::where(['goods_id'=>$goods_id])->get()->toArray();
-
+        // $goods_id = $request->all('goods_id');
+        // $goods_id  = $goods_id['goods_id'];
+        // $goodsInfo = GoodsModel::where(['goods_id'=>$goods_id])->get()->toArray();
+        $id = $id['goods_id'];
         // dd($goodsInfo);  
         // $id = $goodsInfo[0]['goods_id'];
         $time = time();
@@ -32,7 +32,7 @@ class ColleController extends Controller
             'u_id' => $user
         ]);
         
-        return json_encode($colleInfo);
+        return json_encode("成功");
     }
 
     // 前台收藏展示
