@@ -41,19 +41,19 @@ class Rbac
             // $url = request()->server();
             // dd($url);
             $power = new PermiModel;
-            $data = "";
+            // $data = "";
             foreach($role_powerAll as $k =>$v)
             {
                 $url = request()->server('REDIRECT_URL');
                 // dd($url);
                 // $http = request()->server('HTTP_HOST');
                 // $header = "http://".$http.$url;
-                $path = $power::where(['p_id'=>$v['p_id']])->where(['p_url'=>$url])->first()->get()->toArray();
+                $path = $power::where(['p_id'=>$v['p_id']])->where(['p_url'=>$url])->get()->toArray();
                 // dd($path);
                 // $data.=$path;
             }
             // dd($data);8
-            if($data==''){
+            if($path==''){
                 echo '<script>alert("您的权限不够，请联系管理员");window.location.href="/"</script>';
             }
         }
