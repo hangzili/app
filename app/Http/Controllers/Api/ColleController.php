@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Cookie;
 class ColleController extends Controller
 {
     // 前台收藏添加接口
-    public function ColleApi(Request $requets)
+    public function ColleApi(Request $request)
     {
         $goods_id = $request->all();
         // $goods_id  = $goods_id['godos_id'];
