@@ -35,6 +35,6 @@ class AddressController extends Controller
     {
         // $user_id = $request->all('user_id');
         $user_id=\Session::get('user');
-        return json_encode(AddressModel::get()->where('user_id',$user_id['user_id'])->toArray());
+        return json_encode(AddressModel::get()->where('user_id',$user_id)->toArray());
     }
 }
