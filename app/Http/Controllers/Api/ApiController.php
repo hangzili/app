@@ -175,7 +175,8 @@ class ApiController extends Controller
         // $id = $goods[0]['goods_id'];
         $id = $request->all();
         // dd($id);
-        $user = 2;
+        // $user = 2;
+        $user = \Session::get('user');
         $carInfo = CarModel::join('goods','car.goods_id','=','goods.goods_id')->where('car.user_id','=',$user)->where('car.goods_id','=',$id)->get()->toArray();
         // dd($carInfo);
         return json_encode($carInfo);
@@ -196,7 +197,8 @@ class ApiController extends Controller
         // $num = 45;
         // dd($id);
 
-        $user = 7;
+        // $user = 7;
+        $user = \Session::get('user');
         $carInfo = CarModel::where('goods_id','=',$id)->where('user_id','=',$user)->update(['c_num'=>$num]);
         // dd($carInfo);
         return json_encode($carInfo);
