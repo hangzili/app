@@ -99,9 +99,10 @@ class ApiController extends Controller
             echo json_encode('用户密码不对，请输入正确的密码');exit;
         }
         $data = \Session::put(['user'=>$u_id]);
-        // dd(\session::get('user'));
+        $a = (\session::get('user'));
+        return json_encode($a);
         // echo Cookie::get('user');
-        echo json_encode('登陆成功');exit;
+        // echo json_encode('登陆成功');exit;
     }
 
     // 精品推荐接口
@@ -205,8 +206,8 @@ class ApiController extends Controller
     public function session()
     {
         $id = \Session::get('user');
-        return json_encode($id);
-        // $user = UserModel::where(['u_id'=>$id])->get()->toArray();
-        // return json_encode($user);
+        // return json_encode($id);
+        $user = UserModel::where(['u_id'=>$id])->get()->toArray();
+        return json_encode($user);
     }
 }
