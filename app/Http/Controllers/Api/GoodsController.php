@@ -79,7 +79,7 @@ class GoodsController extends Controller
         $id = explode(",",$id);
         // var_dump ($id);exit();
         $goods = GoodsModel::whereIn('goods_id',$id)->get()->toArray();
-        // dd($where);
+        // dd($goods);
         // var_dump($goods_id);
         return json_encode($goods);
           

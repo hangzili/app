@@ -14,8 +14,8 @@ class CarController extends Controller
         $goods_id = $all['goods_id'];
         $user_id = \Session::get('user');
         if(empty($user_id)){
-            echo "<script>alert('请先登录！')</script>";
-            exit;
+            return json_encode ("<script>alert('请先登录！')</script>");exit();
+            
         }else{
             // return redirect("/car/add");
             $model = new CarModel;
