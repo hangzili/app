@@ -26,11 +26,6 @@ class Rbac
         }else{
             // 如果有 把cookie取出来
             $u_name = \Session::get('username');
-<<<<<<< HEAD
-//            dd($u_name);
-=======
-            // dd($u_name);
->>>>>>> d38c1df087e2103e8d16fd1513b81e4f998511be
             // 查询当前用户是什么角色
             $user = new HuserModel;
             $role = new UserRoleModel;
@@ -45,20 +40,7 @@ class Rbac
             // $url = request()->server();
             // dd($url);
             $power = new PermiModel;
-<<<<<<< HEAD
-            $data = "";
-            $url = request()->server('REDIRECT_URL');
-            foreach($role_powerAll as $k =>$v)
-            {
-//                 dd($url);
-                 //$http = request()->server('HTTP_HOST');
-                 //$header = "http://".$http.$url;
-//                 dd($header);
-                $path = $power::where(['p_id'=>$v['p_id']])->where(['p_url'=>$url])->get()->toArray();
-            }
-//             dd($path);
-            if($data){
-=======
+
             // $data = "";
             foreach($role_powerAll as $k =>$v)
             {
@@ -72,7 +54,6 @@ class Rbac
             }
             // dd($data);8
             if($path==''){
->>>>>>> d38c1df087e2103e8d16fd1513b81e4f998511be
                 echo '<script>alert("您的权限不够，请联系管理员");window.location.href="/"</script>';
             }
         }
