@@ -205,7 +205,7 @@ class ApiController extends Controller
     // 删除前台session()
     public function session()
     {
-        $id = \session::get('user');
+        $id = \Session::get('user');
         return json_encode($id);
         // $user = UserModel::where(['u_id'=>$id])->get()->toArray();
         // return json_encode($user);
