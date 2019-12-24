@@ -25,13 +25,13 @@
         </tbody>
     @endforeach
     </table>
-
+<center>{{ $betInfo->links() }}</center>
 </div>
 
 
-@endsection
-    <center>{{ $betInfo->links() }}</center>
-</div>
+
+    
+
 @endsection
 <script src="/index/js/jquery.min.js?v=2.1.4"></script>
 <script>
