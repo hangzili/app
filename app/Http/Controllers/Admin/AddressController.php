@@ -33,7 +33,8 @@ class AddressController extends Controller
     //用户收货地址展示表 ---------------查询成功，传入用户id
     public function list(Request $request)
     {
-        $user_id = $request->all('user_id');
+        // $user_id = $request->all('user_id');
+        $user_id=\Session::get('user');
         return json_encode(AddressModel::get()->where('user_id',$user_id['user_id'])->toArray());
     }
 }
