@@ -15,11 +15,13 @@ class GoodsController extends Controller
         $cat_id = $data['cat_id'];
         if($cat_id==""){
             $goodsInfo = GoodsModel::get()->limit('10')->toArray();
+
+
         }else{
             $goodsInfo = GoodsModel::get()->where('cat_id',$cat_id)->toArray();
         }
         
-        // dd($goodsInfo);
+
         return json_encode($goodsInfo);
     }
 
@@ -71,4 +73,18 @@ class GoodsController extends Controller
         // dd($goodsInfo);
         return json_encode($goodsInfo);
     }
+
+    public function id_goods()
+    {
+        // $id = request()->all();
+        $id = "1,2,3";
+        $id = explode(",",$id);
+        // var_dump ($id);exit();
+        $goods = GoodsModel::whereIn('goods_id',$id)->get()->toArray();
+        // dd($goods);
+        // var_dump($goods_id);
+        return json_encode($goods);
+          
+    }
+
 }
