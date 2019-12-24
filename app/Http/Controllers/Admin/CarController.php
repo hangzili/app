@@ -10,13 +10,26 @@ class CarController extends Controller
     //加入购物车
     public function is_login(Request $request)
     {
-        // $all = $request->all();
+        $all = $request->all();
+        $goods_id = $all['goods_id'];
         $user_id = \Session::get('user');
         if(empty($user_id)){
             echo "<script>alert('请先登录！')</script>";
             exit;
         }else{
-            return redirect("/car/add");
+            // return redirect("/car/add");
+            $model = new CarModel;
+            $sql = $model->insert(
+                [
+                    'user_id'=>$user_id,
+                    'goods_id'=>$goods_id,
+                    ]
+            );
+            if($sql){
+                return json_encode(1);
+            }else{
+                return json_encode(0);
+            }
         }
     }
 

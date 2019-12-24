@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Model\HuserModel;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Redis;
+// use App\Http\Controllers\Rbac\Redis;
 use DB;
 
 class LoginController extends Controller
@@ -46,6 +47,7 @@ class LoginController extends Controller
     public function dologin(Request $request)
     {
         $u_name = $request->all('u_name');
+        // dd($u_name);
         $u_pwd = $request->all('u_pwd');
         // dd($u_emali);
         $loginInfo = HuserModel::where(['u_name'=>$u_name,'u_pwd'=>$u_pwd])->first();
