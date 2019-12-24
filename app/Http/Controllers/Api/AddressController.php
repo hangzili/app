@@ -26,4 +26,15 @@ class AddressController extends Controller
         return json_encode($addreInfo);
 
     }
+
+    // 根据session查用户地址信息（yxl）
+    public function user_ress()
+    {
+        // $user_id = \session::get('user');
+        $model = new AddressModel;
+        // 如果session等于2  1是默认地址
+        $user_ress = $model->where(['user_id'=>2,'is_default'=>1])->first();
+        // dd($user_ress);
+        return json_encode($user_ress);
+    }
 }
