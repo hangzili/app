@@ -123,8 +123,7 @@ Route::any("rbac/regis","Rbac\LoginController@regis");//用户注册视图
     Route::any("rbac/login","Rbac\LoginController@login");//用户登录视图
     Route::any("rbac/dologin","Rbac\LoginController@dologin");//用户登录执行
     Route::any("/exit","IndexController@exit");//退出登录执行
-
-
+    
 
 
 // 加入购物车
@@ -174,6 +173,7 @@ Route::prefix('api')->group(function () {
     Route::any("goodsDelApi","Api\ApiController@goodsDelApi");//前台购物车删除接口
     Route::any("gumcum","Api\ApiController@gumcum");//前台商品数量和购物车数量接口
     Route::any("carupnumApi","Api\ApiController@carupnumApi");//前台修改购物车数量接口
+    Route::any("session","Api\ApiController@session");//前台修改购物车数量接口
 });
 //前台商品详情页的接口
 Route::any("api/goods_list","Api\GoodslistController@goods_list");//前台商品详情接口
@@ -187,6 +187,7 @@ Route::any("api/goods_3","Api\GoodsController@goods_3");//前台商品展示接�
 Route::any("api/carApi","Api\ApisController@carApi");//购物车展示
 Route::any("api/cardel","Api\ApisController@cardel");//购物车删除
 Route::any("api/coldel","Api\ApisController@coldel");//收藏删除
+
 
 
 Route::any("api/addrelistApi","Api\AddressController@addrelistApi");//前台收货地址展示接口

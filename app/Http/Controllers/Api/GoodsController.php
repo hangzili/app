@@ -11,7 +11,14 @@ class GoodsController extends Controller
     // 前台展示
     public function goods(Request $request)
     {
-        $goodsInfo = GoodsModel::limit(15)->get()->toArray();
+        $data = $request->all();
+        $cat_id = $data['cat_id'];
+        if($cat_id==""){
+            $goodsInfo = GoodsModel::get()->limit('10')->toArray();
+        }else{
+            $goodsInfo = GoodsModel::get()->where('cat_id',$cat_id)->toArray();
+        }
+        
         // dd($goodsInfo);
         return json_encode($goodsInfo);
     }
@@ -21,12 +28,21 @@ class GoodsController extends Controller
     {
         $data = $request->all();
         // $data = "asc";
-
-        if($data['order'] == 'desc'){
-            $goodsInfo = GoodsModel::orderBy('g_num','asc')->limit(15)->get()->toArray();
-        }else if($data['order'] == 'asc'){
-            $goodsInfo = GoodsModel::orderBy('g_num','desc')->limit(15)->get()->toArray();
+        $cat_id = $data['cat_id'];
+        if($cat_id==""){
+            if($data['order'] == 'desc'){
+                $goodsInfo = GoodsModel::orderBy('g_num','asc')->limit('10')->get()->toArray();
+            }else if($data['order'] == 'asc'){
+                $goodsInfo = GoodsModel::orderBy('g_num','desc')->limit('10')->get()->toArray();
+            }
+        }else{
+            if($data['order'] == 'desc'){
+                $goodsInfo = GoodsModel::orderBy('g_num','asc')->where('cat_id',$cat_id)->get()->toArray();
+            }else if($data['order'] == 'asc'){
+                $goodsInfo = GoodsModel::orderBy('g_num','desc')->where('cat_id',$cat_id)->get()->toArray();
+            }
         }
+        
         // dd($goodsInfo);
         return json_encode($goodsInfo);
         // dd($goodsInfo);
@@ -37,11 +53,21 @@ class GoodsController extends Controller
     {
         $data = $request->all();
         // $data = 'desc';
-        if($data['order'] == 'desc'){
-            $goodsInfo = GoodsModel::orderBy('g_price','asc')->limit(15)->get()->toArray();
-        }else if($data['order'] == 'asc'){
-            $goodsInfo = GoodsModel::orderBy('g_price','desc')->limit(15)->get()->toArray();
+        $cat_id = $data['cat_id'];
+        if($cat_id==""){
+            if($data['order'] == 'desc'){
+                $goodsInfo = GoodsModel::orderBy('g_price','asc')->limit('10')->get()->toArray();
+            }else if($data['order'] == 'asc'){
+                $goodsInfo = GoodsModel::orderBy('g_price','desc')->limit('10')->get()->toArray();
+            }
+        }else{
+            if($data['order'] == 'desc'){
+                $goodsInfo = GoodsModel::orderBy('g_price','asc')->where('cat_id',$cat_id)->get()->toArray();
+            }else if($data['order'] == 'asc'){
+                $goodsInfo = GoodsModel::orderBy('g_price','desc')->where('cat_id',$cat_id)->get()->toArray();
+            }
         }
+        
         // dd($goodsInfo);
         return json_encode($goodsInfo);
     }

@@ -99,9 +99,14 @@ class ApiController extends Controller
             echo json_encode('用户密码不对，请输入正确的密码');exit;
         }
         $data = \Session::put(['user'=>$u_id]);
+<<<<<<< HEAD
         // dd(\session::get('user'));
+=======
+        // $a = (\session::get('user'));
+        // return json_encode($a);
+>>>>>>> 095f0e68e56a6978c4a130eff3ca0f5a2c753ea1
         // echo Cookie::get('user');
-        echo json_encode('登陆成功');exit;
+        return json_encode('登陆成功');exit;
     }
 
     // 精品推荐接口
@@ -122,7 +127,7 @@ class ApiController extends Controller
     // 猜你喜欢
     public function likeApi()
     {
-        $likeInfo = GoodsModel::orderBy('goods_id','desc')->limit(6)->get();
+        $likeInfo = GoodsModel::orderBy('goods_id','desc')->limit(4)->get();
         // dd($likeInfo);
         return json_encode($likeInfo);
     }
@@ -174,7 +179,8 @@ class ApiController extends Controller
         // $id = $goods[0]['goods_id'];
         $id = $request->all();
         // dd($id);
-        $user = 2;
+        // $user = 2;
+        $user = \Session::get('user');
         $carInfo = CarModel::join('goods','car.goods_id','=','goods.goods_id')->where('car.user_id','=',$user)->where('car.goods_id','=',$id)->get()->toArray();
         // dd($carInfo);
         return json_encode($carInfo);
@@ -195,9 +201,19 @@ class ApiController extends Controller
         // $num = 45;
         // dd($id);
 
-        $user = 7;
+        // $user = 7;
+        $user = \Session::get('user');
         $carInfo = CarModel::where('goods_id','=',$id)->where('user_id','=',$user)->update(['c_num'=>$num]);
         // dd($carInfo);
         return json_encode($carInfo);
+    }
+
+    // 删除前台session()
+    public function session()
+    {
+        $id = \Session::get('user');
+        // return json_encode($id);
+        $user = UserModel::where(['u_id'=>$id])->get()->toArray();
+        return json_encode($user);
     }
 }
