@@ -206,8 +206,8 @@ class ApiController extends Controller
     public function session()
     {
         $id = \Session::get('user');
-        return json_encode($id);
-        // $user = UserModel::where(['u_id'=>$id])->get()->toArray();
-        // return json_encode($user);
+        // return json_encode($id);
+        $user = UserModel::where(['u_id'=>$id])->get()->toArray();
+        return json_encode($user);
     }
 }
