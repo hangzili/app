@@ -192,3 +192,7 @@ Route::any("api/coldel","Api\ApisController@coldel");//收藏删除
 
 Route::any("api/addrelistApi","Api\AddressController@addrelistApi");//前台收货地址展示接口
 
+Route::any("api/user_ress","Api\AddressController@user_ress");// 根据session查该用户的收货地址
+Route::any("api/id_goods","Api\GoodsController@id_goods");//根据id查商品信息
+Route::any("api/Indentadd","Api\IndentController@Indentadd");//添加订单信息
+

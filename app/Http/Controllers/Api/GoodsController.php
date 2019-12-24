@@ -71,4 +71,18 @@ class GoodsController extends Controller
         // dd($goodsInfo);
         return json_encode($goodsInfo);
     }
+
+    public function id_goods()
+    {
+        // $id = request()->all();
+        $id = "1,2,3";
+        $id = explode(",",$id);
+        // var_dump ($id);exit();
+        $goods = GoodsModel::whereIn('goods_id',$id)->get()->toArray();
+        // dd($where);
+        // var_dump($goods_id);
+        return json_encode($goods);
+          
+    }
+
 }

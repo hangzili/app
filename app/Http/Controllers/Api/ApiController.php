@@ -99,8 +99,12 @@ class ApiController extends Controller
             echo json_encode('用户密码不对，请输入正确的密码');exit;
         }
         $data = \Session::put(['user'=>$u_id]);
+
+        // dd(\session::get('user'));
+
         // $a = (\session::get('user'));
         // return json_encode($a);
+
         // echo Cookie::get('user');
         return json_encode('登陆成功');exit;
     }
@@ -175,7 +179,8 @@ class ApiController extends Controller
         // $id = $goods[0]['goods_id'];
         $id = $request->all();
         // dd($id);
-        $user = 2;
+        // $user = 2;
+        $user = \Session::get('user');
         $carInfo = CarModel::join('goods','car.goods_id','=','goods.goods_id')->where('car.user_id','=',$user)->where('car.goods_id','=',$id)->get()->toArray();
         // dd($carInfo);
         return json_encode($carInfo);
@@ -196,7 +201,8 @@ class ApiController extends Controller
         // $num = 45;
         // dd($id);
 
-        $user = 7;
+        // $user = 7;
+        $user = \Session::get('user');
         $carInfo = CarModel::where('goods_id','=',$id)->where('user_id','=',$user)->update(['c_num'=>$num]);
         // dd($carInfo);
         return json_encode($carInfo);
