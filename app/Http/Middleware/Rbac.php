@@ -26,6 +26,7 @@ class Rbac
         }else{
             // 如果有 把cookie取出来
             $u_name = \Session::get('username');
+            // dd($u_name);
             // 查询当前用户是什么角色
             $user = new HuserModel;
             $role = new UserRoleModel;

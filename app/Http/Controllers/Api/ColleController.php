@@ -16,9 +16,9 @@ class ColleController extends Controller
     public function ColleApi(Request $requets)
     {
         $id = request()->all();
-        $goodsInfo = GoodsModel::where(['goods_id'=>4])->get()->toArray();
+        $goodsInfo = GoodsModel::where(['goods_id'=>$id])->get()->toArray();
         // dd($goodsInfo);  
-        $id = $goodsInfo[0]['goods_id'];
+        // $id = $goodsInfo[0]['goods_id'];
         $time = time();
         $user = \Session::get('user');
         $colleInfo = ColleModel::create([

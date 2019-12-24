@@ -99,7 +99,7 @@ class ApiController extends Controller
             echo json_encode('用户密码不对，请输入正确的密码');exit;
         }
         $data = \Session::put(['user'=>$u_id]);
-        dd(\session::get('user'));
+        // dd(\session::get('user'));
         // echo Cookie::get('user');
         echo json_encode('登陆成功');exit;
     }
